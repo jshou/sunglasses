@@ -4,15 +4,15 @@
 
   chrome.tabs.onSelectionChanged.addListener(function(tabId, selectInfo) {
     console.log("sunglasses_opacity changed");
-    chrome.tabs.sendRequest(tabId, {sunglasses_opacity: sunglasses_opacity}, function(response) {
+    chrome.tabs.sendRequest(tabId, {tab_sunglasses_opacity: sunglasses_opacity}, function(response) {
       console.log(response.status);
     });
   });
 
   chrome.extension.onRequest.addListener(
     function(request, sender, sendResponse) {
-      if (request.sunglasses_opacity != null) {
-        sunglasses_opacity = request.sunglasses_opacity;
+      if (request.save_sunglasses_opacity != null) {
+        sunglasses_opacity = request.save_sunglasses_opacity;
         sendResponse({status: "sunglasses_opacity saved succesfully with value " + sunglasses_opacity});
       } else {
         sendResponse({status: "sunglasses_opacity did not save"});

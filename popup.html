@@ -20,7 +20,7 @@
   }
 
   function saveOpacity(value) {
-    chrome.extension.sendRequest({sunglasses_opacity: value}, function(response) {
+    chrome.extension.sendRequest({save_sunglasses_opacity: value}, function(response) {
       console.log(response.status);
     });
   }

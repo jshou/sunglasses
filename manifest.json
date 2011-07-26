@@ -8,13 +8,13 @@
     "popup" : "popup.html"
   },
   "background_page" : "background.html",
-  "permissions": ["tabs", "http://*/", "https://*/", "devtools://*/"],
+  "permissions": ["tabs", "http://*/", "https://*/", "devtools://*/", "file:///*/"],
 
   "content_scripts" : [
     {
       "matches" : ["http://*/*", "https://*/*"],
-      "css" : ["sunglasses.css"],
-      "js" : ["sunglasses.js"]
+      "js" : ["sunglasses.js"],
+      "css" : ["sunglasses.css"]
     }
   ]
 }

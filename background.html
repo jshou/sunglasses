@@ -1,0 +1,29 @@
+<html>
+  <script>
+  var sunglasses_opacity = 0.2;
+
+  // listening for when popup hits save button
+  chrome.extension.onRequest.addListener(
+    function(request, sender, sendResponse) {
+      if (request.save_sunglasses_opacity != null) {
+        // save sunglasses_opacity
+        sunglasses_opacity = request.save_sunglasses_opacity;
+
+        // send opacity to all tabs
+        chrome.tabs.getAllInWindow(null, function(tabs) {
+          for (i=0; i<tabs.length; i++) {
+            chrome.tabs.sendRequest(tabs[i].id, {tab_sunglasses_opacity: sunglasses_opacity}, function(response) {
+              console.log(response.status);
+            });
+          }
+        });
+
+        sendResponse({status: "sunglasses_opacity saved succesfully with value " + sunglasses_opacity});
+      } else {
+        sendResponse({status: "sunglasses_opacity did not save"});
+      }
+    });
+  
+  </script>
+</html>
+

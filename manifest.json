@@ -4,14 +4,17 @@
   "description" : "Tints webpages so it doesn't hurt your eyes",
   "browser_action" : {
     "default_icon" : "icon.png",
+    "default_title" : "sunglasses settings",
     "popup" : "popup.html"
   },
+  "background_page" : "background.html",
+  "permissions": ["tabs", "http://*/", "https://*/", "devtools://*/", "file:///*/"],
 
   "content_scripts" : [
     {
       "matches" : ["http://*/*", "https://*/*"],
-      "css" : ["sunglasses.css"],
-      "js" : ["sunglasses.js"]
+      "js" : ["sunglasses.js"],
+      "css" : ["sunglasses.css"]
     }
   ]
 }

@@ -1,0 +1,20 @@
+<html>
+  <script>
+  function shade() {
+    if document.getElementById("webpage_sunglasses") == null {
+      var sunglasses = document.createElement("div");
+      sunglasses.id = "webpage_sunglasses";
+      document.body.appendChild(sunglasses);
+    }
+  }
+
+  function setShade(value) {
+    document.getElementById("webpage_sunglasses").style.opacity =  value;
+  }
+
+  chrome.tabs.onSelectionChanged.addListener(function(tabId, selectInfo) {
+    chrome.tabs.executeScript(tabId, {code: 'shade(); setShade(localStorage["sunglasses_opacity"])'}, null);
+  });
+  </script>
+</html>
+

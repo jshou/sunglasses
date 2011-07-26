@@ -1,11 +1,11 @@
 <html>
   <script>
-  var sunglasses_opacity = 0.2;
+  var sunglasses_opacity = 0.3;
 
-  // listening for when popup hits save button
   chrome.extension.onRequest.addListener(
     function(request, sender, sendResponse) {
       if (request.save_sunglasses_opacity != null) {
+        // listening for when popup hits save button
         // save sunglasses_opacity
         sunglasses_opacity = request.save_sunglasses_opacity;
 
@@ -19,10 +19,15 @@
         });
 
         sendResponse({status: "sunglasses_opacity saved succesfully with value " + sunglasses_opacity});
+      } else if (request.greeting == "opacity, please?") {
+        // listening for when popup.html or a new page requests opacity
+        sendResponse({requested_sunglasses_opacity: sunglasses_opacity});
       } else {
-        sendResponse({status: "sunglasses_opacity did not save"});
+        alert("nothing happened");
+        sendResponse({status: "sunglasses_opacity did not save or did not send"});
       }
     });
+
   
   </script>
 </html>

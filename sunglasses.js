@@ -1,3 +1,4 @@
+// listens for when background pushes a new opacity to all tabs
 chrome.extension.onRequest.addListener(
   function(request, sender, sendResponse) {
     if (request.tab_sunglasses_opacity != null) {
@@ -13,3 +14,5 @@ chrome.extension.onRequest.addListener(
       sendResponse({status: "sunglasses.js did not receive sunglasses_opacity"});
     }
   });
+
+

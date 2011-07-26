@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>another title</title>
+
+    <link href="sunglasses.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="sunglasses.js"></script>
+    <script type="text/javascript">
+      function showValue(newValue) {
+        document.getElementById("range").innerHTML=newValue;
+      }
+
+      function setShade(value) {
+        document.getElementById("webpage_sunglasses").style.opacity =  value/100;
+      }
+    </script>
+  </head>
+
+  <body onload="shade();">
+    <input type="range" min="0" max="100" value="20" step="1" onchange="setShade(this.value); showValue(this.value);" />
+    <span id="range">20</span>
+  </body>
+</html>

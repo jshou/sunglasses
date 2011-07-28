@@ -2,8 +2,11 @@
   "name" : "sunglasses",
   "version" : "0.1",
   "description" : "Tints webpages so it doesn't hurt your eyes",
+  "icons" : { 
+              "48" : "images/sunglasses_48.png",
+             "128" : "images/sunglasses_128.png" },
   "browser_action" : {
-    "default_icon" : "icon.png",
+    "default_icon" : "images/sunglasses_19.png",
     "default_title" : "sunglasses settings",
     "popup" : "popup.html"
   },

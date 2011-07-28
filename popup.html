@@ -41,9 +41,10 @@
 </script>
 
 <div id="webpage_sunglasses"></div>
-Set shade:
-<input type="range" id="slider" min="0" max="100" step="1" onchange="setShade(this.value/100); showValue(this.value);" />
+<h3>sunglasses</h3>
+<p>Drag slider to set sunglasses' darkness</p>
+<input type="range" id="slider" min="0" max="80" step="1" onchange="setShade(this.value/100); showValue(this.value);" />
 <span id="opacity_status">20</span>
 <br>
 
-<input type="button" onclick="saveOpacity(document.getElementById('slider').value/100)" value="save">
+<input type="button" onclick="saveOpacity(document.getElementById('slider').value/100)" value="Save">

@@ -1,5 +1,12 @@
 <html>
   <script>
+  // checking if the extension has been run before
+  var firstRunDone = (localStorage['firstRunDone'] == 'true');
+  if (!firstRunDone) {
+    localStorage['firstRunDone'] = 'true';
+    // setting default opacity of 5% for first installation of extension
+    localStorage['sunglasses_opacity'] = 0.05;
+  }
 
   chrome.extension.onRequest.addListener(
     function(request, sender, sendResponse) {

@@ -1,6 +1,6 @@
 {
   "name" : "sunglasses",
-  "version" : "0.2",
+  "version" : "0.3",
   "description" : "Tints webpages so it doesn't hurt your eyes",
   "icons" : { 
               "48" : "images/sunglasses_48.png",

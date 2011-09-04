@@ -16,7 +16,7 @@
   "content_scripts" : [
     {
       "matches" : ["http://*/*", "https://*/*"],
-      "js" : ["keymaster.min.js", "sunglasses.js"],
+      "js" : ["keymaster.js", "sunglasses.js"],
       "css" : ["sunglasses.css"]
     }
   ]

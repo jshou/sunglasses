@@ -34,13 +34,13 @@ chrome.extension.onRequest.addListener(
     }
   });
 
-key("ctrl+shift+=", function(){
+key("ctrl+shift+0", function(){
   chrome.extension.sendRequest({increment: 5}, function(response) {
     // console.log(response.status);
   })
 });
 
-key("ctrl+shift+-", function(){
+key("ctrl+shift+9", function(){
   chrome.extension.sendRequest({decrement: 5}, function(response) {
     // console.log(response.status);
   })

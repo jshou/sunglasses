@@ -7,7 +7,7 @@ function addShade() {
 }
 
 function shadePage(opacity) {
-  document.getElementById("webpage_sunglasses").style.opacity = opacity;
+  document.getElementById("webpage_sunglasses").style.opacity = opacity/100;
 }
 
 // requests background for opacity
@@ -35,13 +35,13 @@ chrome.extension.onRequest.addListener(
   });
 
 key("ctrl+shift+=", function(){
-  chrome.extension.sendRequest({increment: 0.05}, function(response) {
+  chrome.extension.sendRequest({increment: 5}, function(response) {
     // console.log(response.status);
   })
 });
 
 key("ctrl+shift+-", function(){
-  chrome.extension.sendRequest({decrement: 0.05}, function(response) {
+  chrome.extension.sendRequest({decrement: 5}, function(response) {
     // console.log(response.status);
   })
 });

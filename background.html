@@ -5,7 +5,7 @@
   if (!firstRunDone) {
     localStorage['firstRunDone'] = 'true';
     // setting default opacity of 5% for first installation of extension
-    localStorage['sunglasses_opacity'] = 0.05;
+    localStorage['sunglasses_opacity'] = 5;
   }
 
   function sendOpacityToAllTabs() {
@@ -34,17 +34,17 @@
       } else if (request.increment != null) {
         // increase opacity
         // max value of 80 is set in popup too, maybe I should set this in a single place
-        localStorage['sunglasses_opacity'] = parseFloat(localStorage['sunglasses_opacity']) + request.increment;
+        localStorage['sunglasses_opacity'] = parseInt(localStorage['sunglasses_opacity']) + request.increment;
         // never increment more than 80
-        if (parseFloat(localStorage['sunglasses_opacity']) > 0.8) {
-          localStorage['sunglasses_opacity'] = 0.8;
+        if (parseInt(localStorage['sunglasses_opacity']) > 80) {
+          localStorage['sunglasses_opacity'] = 80;
         }
         sendOpacityToAllTabs();
         sendResponse({status: "incremented"});
       } else if (request.decrement != null) {
         // decrease opacity
-        localStorage['sunglasses_opacity'] = parseFloat(localStorage['sunglasses_opacity']) - request.decrement;
-        if (parseFloat(localStorage['sunglasses_opacity']) < 0) {
+        localStorage['sunglasses_opacity'] = parseInt(localStorage['sunglasses_opacity']) - request.decrement;
+        if (parseInt(localStorage['sunglasses_opacity']) < 0) {
         // never decrease more than 0
           localStorage['sunglasses_opacity'] = 0;
         }

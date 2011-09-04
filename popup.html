@@ -12,7 +12,7 @@
 
 <script>
   function setShade(value) {
-    document.getElementById("webpage_sunglasses").style.opacity = value;
+    document.getElementById("webpage_sunglasses").style.opacity = value/100;
   }
 
   function showValue(newValue) {
@@ -22,7 +22,7 @@
   // submits opacity setting to background.html
   function saveOpacity(value) {
     chrome.extension.sendRequest({save_sunglasses_opacity: value}, function(response) {
-      console.log(response.status);
+      // console.log(response.status);
     });
   }
 
@@ -30,11 +30,11 @@
   chrome.extension.sendRequest({greeting: "opacity, please?"}, function(response) {
     if (response.requested_sunglasses_opacity != null) {
       setShade(response.requested_sunglasses_opacity);
-      showValue(response.requested_sunglasses_opacity * 100);
-      document.getElementById('slider').value = response.requested_sunglasses_opacity * 100;
-      console.log("popup.html successfully received sunglasses_opacity upon request");
+      showValue(response.requested_sunglasses_opacity);
+      document.getElementById('slider').value = response.requested_sunglasses_opacity;
+      // console.log("popup.html successfully received sunglasses_opacity upon request");
     } else {
-      console.log("popup.html did not receive sunglasses_opacity upon request");
+      // console.log("popup.html did not receive sunglasses_opacity upon request");
     }
   });
 
@@ -43,8 +43,8 @@
 <div id="webpage_sunglasses"></div>
 <h3>sunglasses</h3>
 <p>Drag slider to set sunglasses' darkness</p>
-<input type="range" id="slider" min="0" max="80" step="1" onchange="setShade(this.value/100); showValue(this.value);" />
+<input type="range" id="slider" min="0" max="80" step="1" onchange="setShade(this.value); showValue(this.value);" />
 <span id="opacity_status">20</span>
 <br>
 
-<input type="button" onclick="saveOpacity(document.getElementById('slider').value/100)" value="Save">
+<input type="button" onclick="saveOpacity(document.getElementById('slider').value)" value="Save">

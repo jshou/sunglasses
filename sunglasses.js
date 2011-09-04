@@ -7,7 +7,7 @@ function addShade() {
 }
 
 function shadePage(opacity) {
-  document.getElementById("webpage_sunglasses").style.opacity = opacity;
+  document.getElementById("webpage_sunglasses").style.opacity = opacity/100;
 }
 
 // requests background for opacity
@@ -15,9 +15,9 @@ chrome.extension.sendRequest({greeting: "opacity, please?"}, function(response) 
   if (response.requested_sunglasses_opacity != null) {
     addShade();
     shadePage(response.requested_sunglasses_opacity);
-    console.log("sunglasses.js successfully received sunglasses_opacity upon request");
+    // console.log("sunglasses.js successfully received sunglasses_opacity upon request");
   } else {
-    console.log("sunglasses.js did not receive sunglasses_opacity upon request");
+    // console.log("sunglasses.js did not receive sunglasses_opacity upon request");
   }
 });
 
@@ -34,4 +34,14 @@ chrome.extension.onRequest.addListener(
     }
   });
 
+key("ctrl+shift+=", function(){
+  chrome.extension.sendRequest({increment: 5}, function(response) {
+    // console.log(response.status);
+  })
+});
 
+key("ctrl+shift+-", function(){
+  chrome.extension.sendRequest({decrement: 5}, function(response) {
+    // console.log(response.status);
+  })
+});

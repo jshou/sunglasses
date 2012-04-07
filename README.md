@@ -3,9 +3,8 @@ sunglasses
 
 Author: Joshua S. Hou
 
-Tints webpages so it doesn't hurt your eyes
+Sunglasses is a Google Chrome extension that tints webpages so it doesn't hurt your eyes.
 
-Opacity set in settings popup, which is displayed by clicking "hello" icon in top right.
-Clicking the save button pushes the opacity info to all tabs.  
+Click the sunglasses icon in the top right of your browser to change browser-wide tint. Ctrl+Shift+8 and 9 work too!
 
 All icons designed by Caleb Hou.

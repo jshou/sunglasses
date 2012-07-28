@@ -1,16 +1,19 @@
 {
+  "manifest_version": 2,
   "name" : "sunglasses",
-  "version" : "0.4.2",
+  "version" : "1.0",
   "description" : "Tints webpages so it doesn't hurt your eyes",
-  "icons" : { 
+  "icons" : {
               "48" : "images/sunglasses_48.png",
              "128" : "images/sunglasses_128.png" },
   "browser_action" : {
     "default_icon" : "images/sunglasses_19.png",
     "default_title" : "sunglasses settings",
-    "popup" : "popup.html"
+    "default_popup" : "popup.html"
   },
-  "background_page" : "background.html",
+  "background" : {
+    "page" : "background.html"
+  },
   "permissions": ["tabs", "<all_urls>"],
 
   "content_scripts" : [

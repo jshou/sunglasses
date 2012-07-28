@@ -9,7 +9,7 @@
   "browser_action" : {
     "default_icon" : "images/sunglasses_19.png",
     "default_title" : "sunglasses settings",
-    "popup" : "popup.html"
+    "default_popup" : "popup.html"
   },
   "background" : {
     "page" : "background.html"

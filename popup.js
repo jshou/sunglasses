@@ -33,7 +33,7 @@ var shadeHandler = function(e) {
 
 var saveOpacityHandler = function(e) {
   var sliderValue = document.getElementById('slider').value;
-  setOpacity(sliderValue);
+  saveOpacity(sliderValue);
 }
 
 document.addEventListener('DOMContentLoaded', function () {
